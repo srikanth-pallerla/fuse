@@ -205,6 +205,27 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>clean-startup</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target name="clean-startup">
+                                <echo message="Removing patch files from startup.properties" />
+                                <replaceregexp file="target/original/jboss-fuse-${jboss.fuse.version}/etc/startup.properties" match="io/fabric8/patch/patch-management(.*)" replace="" byline="true"/>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
             <!--
                 Step 4: Create the custom assembly ZIP file
             -->
@@ -225,7 +246,6 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
     </build>
 

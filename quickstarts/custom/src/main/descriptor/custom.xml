@@ -41,7 +41,7 @@
                 <include>io/fabric8/fabric-ssl/**</include>
                 <include>org/apache/felix/**</include>
                 <include>org/apache/karaf/**</include>
-                <include>org/jboss/fuse/shared-commands/**</include>
+                <include>org/jboss/fuse/esb-commands/**</include>
                 <include>org/ops4j/pax/**</include>
             </includes>
         </fileSet>
